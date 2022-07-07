@@ -1,0 +1,3 @@
+<resources>
+    <string name="codewars_base_url">https://www.codewars.com/api/v1</string>
+</resources>
