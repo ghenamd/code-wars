@@ -4,6 +4,10 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.3614583333333333" />
+        <entry key="app/src/main/res/layout/challenge_item.xml" value="0.37604166666666666" />
+        <entry key="app/src/main/res/layout/fragment_challenge_details.xml" value="0.3770833333333333" />
+        <entry key="app/src/main/res/layout/fragment_challenge_list.xml" value="0.3614583333333333" />
+        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.3770833333333333" />
       </map>
     </option>
   </component>

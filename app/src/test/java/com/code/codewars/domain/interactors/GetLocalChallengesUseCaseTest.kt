@@ -7,7 +7,7 @@ import com.nhaarman.mockitokotlin2.whenever
 import io.reactivex.Single
 import org.junit.Test
 
-class GetLocalChallengesUseCaseTest{
+class GetLocalChallengesUseCaseTest {
 
     private val repository = mock<ChallengeRepository>()
     private val SUT by lazy { GetLocalChallengesUseCase(repository) }

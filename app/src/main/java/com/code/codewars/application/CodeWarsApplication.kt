@@ -1,7 +1,7 @@
 package com.code.codewars.application
 
 import android.app.Application
-import com.airbnb.lottie.BuildConfig
+import com.code.codewars.BuildConfig
 import dagger.hilt.android.HiltAndroidApp
 import timber.log.Timber
 

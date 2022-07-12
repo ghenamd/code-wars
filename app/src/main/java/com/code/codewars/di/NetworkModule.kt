@@ -1,6 +1,6 @@
 package com.code.codewars.di
 
-import android.content.Context
+import android.app.Application
 import com.airbnb.lottie.BuildConfig
 import com.code.codewars.R
 import com.code.codewars.data.remote.CodeWarsApi
@@ -11,6 +11,7 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
+import io.reactivex.Scheduler
 import io.reactivex.schedulers.Schedulers
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
@@ -20,8 +21,8 @@ import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.create
 import timber.log.Timber
+import javax.inject.Named
 import javax.inject.Singleton
-
 
 @Module
 @InstallIn(SingletonComponent::class)
@@ -59,7 +60,7 @@ object NetworkModule {
     fun provideRetrofit(
         httpClient: Lazy<OkHttpClient>,
         gson: Gson,
-        context: Context
+        context: Application
     ): Retrofit {
         val url = context.getString(R.string.codewars_base_url) + "/"
         return Retrofit.Builder()
@@ -77,4 +78,8 @@ object NetworkModule {
     fun provideCodeWarsApi(retrofit: Retrofit): CodeWarsApi {
         return retrofit.create()
     }
+
+    @Provides
+    @Named("io")
+    fun providesIoScheduler(): Scheduler = Schedulers.io()
 }

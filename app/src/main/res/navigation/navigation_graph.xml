@@ -2,6 +2,42 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/navigation">
+    android:id="@+id/navigation"
+    app:startDestination="@id/userFragment">
 
+    <fragment
+        android:id="@+id/challengeListFragment"
+        android:name="com.code.codewars.presentation.list.ChallengeListFragment"
+        android:label="Challenges"
+        tools:layout="@layout/fragment_challenge_list">
+        <action
+            android:id="@+id/action_to_challenge_details"
+            app:destination="@id/challengeDetailsFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right" />
+        <action
+            android:id="@+id/action_challengeListFragment_to_userFragment"
+            app:destination="@id/userFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/challengeDetailsFragment"
+        android:name="com.code.codewars.presentation.details.ChallengeDetailsFragment"
+        android:label="Challenge Details"
+        tools:layout="@layout/fragment_challenge_details" />
+    <fragment
+        android:id="@+id/userFragment"
+        android:name="com.code.codewars.presentation.home.HomeFragment"
+        android:label="Home"
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_to_challengeListFragment"
+            app:destination="@id/challengeListFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right" />
+    </fragment>
 </navigation>

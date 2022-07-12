@@ -10,10 +10,13 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import com.code.codewars.R
 import com.code.codewars.data.remote.ChallengeDto
 import com.code.codewars.databinding.ActivityMainBinding
+import com.code.codewars.domain.model.ChallengeCallback
 import com.code.codewars.utils.Common.CHALLENGE_DTO
 import com.code.codewars.utils.Common.CHALLENGE_DTO_LIST
+import dagger.hilt.android.AndroidEntryPoint
 
-class MainActivity : AppCompatActivity() {
+@AndroidEntryPoint
+class MainActivity : AppCompatActivity(), ChallengeCallback {
 
     private lateinit var binding: ActivityMainBinding
     private lateinit var navController: NavController
@@ -32,5 +35,15 @@ class MainActivity : AppCompatActivity() {
 
     override fun onSupportNavigateUp(): Boolean {
         return navController.navigateUp() || super.onSupportNavigateUp()
+    }
+
+    override fun onShowChallengeDetails(item: ChallengeDto) {
+        val bundle = bundleOf(CHALLENGE_DTO to item)
+        navController.navigate(R.id.action_to_challenge_details, bundle)
+    }
+
+    override fun onShowChallengeList(list: List<ChallengeDto>) {
+        val bundle = bundleOf(CHALLENGE_DTO_LIST to list)
+        navController.navigate(R.id.action_to_challengeListFragment, bundle)
     }
 }

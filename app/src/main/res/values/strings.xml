@@ -1,3 +1,13 @@
 <resources>
     <string name="codewars_base_url">https://www.codewars.com/api/v1</string>
+    <string name="home_go_button_text">Go</string>
+    <string name="challenge_list_edt_hint">Insert a user name</string>
+    <string name="challenge_list_error_toast">Ooops something went wrong please try again</string>
+    <string name="challenge_list_null_user_toast">Please insert a valid name</string>
+    <string name="challenge_item_rank_name">Rank:%1$s</string>
+    <string name="challenge_detail_name_transition">Name Transition</string>
+    <string name="challenge_detail_description_transition">Description Transition</string>
+    <string name="challenge_list_no_challenges">No challenges could found for this user</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
